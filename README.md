@@ -1,0 +1,1 @@
+# Django-coin-collector
