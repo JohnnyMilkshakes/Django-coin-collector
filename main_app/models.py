@@ -7,5 +7,5 @@ class Coin(models.Model):
     metal_type = models.CharField()
     description = models.TextField(max_length=500)
     denomination = models.CharField(max_length=100)
-    country = models.ForeignKey()
-    owner = models.ForeignKey()
+    # country = models.ForeignKey()
+    # owner = models.ForeignKey()
