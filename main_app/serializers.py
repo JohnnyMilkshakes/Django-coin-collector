@@ -1,5 +1,10 @@
 from rest_framework import serializers
-from .models import Coin, Transaction
+from .models import Coin, Transaction, Country
+
+class CountrySerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Country
+    fields = '__all__'
 
 class CoinSerializer(serializers.ModelSerializer):
     class Meta:
