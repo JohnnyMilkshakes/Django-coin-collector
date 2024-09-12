@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import Home, CoinList, CoinDetail # additional imports
+from .views import Home, CoinList, CoinDetail, TransactionListCreate, TransactionDetail # additional imports
 
 urlpatterns = [
     path('', Home.as_view(), name='home'),
     path('coins/', CoinList.as_view(), name='coin-list'),
     path('coins/<int:id>/', CoinDetail.as_view(), name='coin-detail'),
+    path('coins/<int:coin_id>/feedings/', TransactionListCreate.as_view(), name='transaction-list-create'),
+	path('coins/<int:coin_id>/feedings/<int:id>/', TransactionDetail.as_view(), name='transaction-detail'),
 ]
