@@ -23,18 +23,18 @@ class TransactionListCreate(generics.ListCreateAPIView):
   serializer_class = TransactionSerializer
 
   def get_queryset(self):
-    transaction_id = self.kwargs['transaction_id']
-    return Transaction.objects.filter(transaction_id=transaction_id)
+    coin_id = self.kwargs['coin_id']
+    return Transaction.objects.filter(coin_id=coin_id)
 
   def perform_create(self, serializer):
-    transaction_id = self.kwargs['transaction_id']
-    transaction = Transaction.objects.get(id=transaction_id)
-    serializer.save(transaction=transaction)
+    coin_id = self.kwargs['coin_id']
+    coin = Transaction.objects.get(id=coin_id)
+    serializer.save(coin=coin)
     
 class TransactionDetail(generics.RetrieveUpdateDestroyAPIView):
   serializer_class = TransactionSerializer
   lookup_field = 'id'
 
   def get_queryset(self):
-    transaction_id = self.kwargs['transaction_id']
-    return Transaction.objects.filter(transaction_id=transaction_id)
+    coin_id = self.kwargs['coin_id']
+    return Transaction.objects.filter(coin_id=coin_id)
