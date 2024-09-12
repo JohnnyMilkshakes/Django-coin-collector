@@ -5,6 +5,15 @@ TRANSACTION_TYPE = (
     ('B', 'Buy'),
     ('S', 'Sell'),
 )
+
+# Create your models here.
+class Country(models.Model):
+    name = models.CharField(max_length=100)
+    region = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return f"Name: {self.name}, Region: {self.region}"
+    
 # Create your models here.
 class Coin(models.Model):
     name = models.CharField(max_length=100)
@@ -17,7 +26,6 @@ class Coin(models.Model):
     
     def __str__(self):
         return f"Name: {self.name}, Year: {self.year}, metal: {self.metal_type}"
-    
     
 # Add new Feeding model below Cat model
 class Transaction(models.Model):

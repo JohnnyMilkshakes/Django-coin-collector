@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import generics
-from .models import Coin, Transaction
-from .serializers import CoinSerializer, TransactionSerializer
+from .models import Coin, Transaction, Country
+from .serializers import CoinSerializer, TransactionSerializer, CountrySerializer
 
 # Define the home view
 class Home(APIView):
@@ -38,3 +38,12 @@ class TransactionDetail(generics.RetrieveUpdateDestroyAPIView):
   def get_queryset(self):
     coin_id = self.kwargs['coin_id']
     return Transaction.objects.filter(coin_id=coin_id)
+
+class CountryList(generics.ListCreateAPIView):
+  queryset = Country.objects.all()
+  serializer_class = CountrySerializer
+    
+class CountryDetail(generics.RetrieveUpdateDestroyAPIView):
+  queryset = Country.objects.all()
+  serializer_class = CountrySerializer
+  lookup_field = 'id'
