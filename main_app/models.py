@@ -31,7 +31,7 @@ class Transaction(models.Model):
   )
   price = models.FloatField()
   # Create a coin_id FK
-  coin = models.ForeignKey(Coin)
+  coin = models.ForeignKey(Coin, on_delete=models.CASCADE)
   
   def __str__(self):
     # Nice method for obtaining the friendly value of a Field.choice
